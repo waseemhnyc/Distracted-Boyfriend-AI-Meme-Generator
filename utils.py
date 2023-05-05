@@ -9,7 +9,6 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 IMGFLIP_USERNAME = os.getenv("IMGFLIP_USERNAME")
 IMGFLIP_PASSWORD = os.getenv("IMGFLIP_PASSWORD")
 
-
 def get_random_temperature():
     return random.choice([0.1 * i for i in range(1, 11)])
 
@@ -27,7 +26,7 @@ def get_meme_text(user_input):
 
     prompt = ChatPromptTemplate(
         messages=[
-            SystemMessage(content="You can create viral memes and specialize in the distracted boyfriend meme. The boyfriend is me and I'm distracted and checking out the hot girl walking away. The girlfriend is not me and is jealous. The hot girl is walking away. Memes must be short, easy to read and understand. Memes must relatable, brief, unexpected, ironic and funny. Do not use the word me"),
+            SystemMessage(content="You can create viral memes and specialize in the distracted boyfriend meme. The boyfriend is me and I'm distracted and checking out the hot girl walking away. The girlfriend is not me and is jealous. The hot girl is walking away. Memes must be short, easy to read and understand. Memes must be relatable, brief, unexpected, ironic and funny. Do not use the word me"),
             HumanMessagePromptTemplate.from_template("Generate a meme about:\n{topic}.\n{format_instructions}")
         ],
         input_variables=["topic"],
