@@ -10,5 +10,5 @@ def index():
         url = distracted_boyfriend_meme_generator(user_input)
         return redirect(url_for("index", result=url))
 
-    result = request.args.get("result")
+    result = request.args.get("result", None)
     return render_template("index.html", result=result)

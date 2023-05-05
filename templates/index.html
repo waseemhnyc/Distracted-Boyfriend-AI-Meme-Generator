@@ -11,11 +11,31 @@
     <input type="submit" value="Generate Meme" />
   </form>
   {% if result %}
-    <img class="result" src="{{ result }}" alt="{{ result }}">
+    <img id="imageToDownload" class="result" src="{{ result }}" alt="{{ result }}">
+    <button id="downloadBtn">Download Image</button>
   {% else %}
-    <img class="result" src="https://i.imgflip.com/7km81u.jpg" title="made at imgflip.com" download="proposed_file_name"/>
+    <img class="result" src="https://i.imgflip.com/7km81u.jpg" title="made at imgflip.com" />
   {% endif %}
-  <div style="display: flex;">
+  <div>
     <p>Created by Waseem. Get in touch with me on <a href="https://twitter.com/waseemhnyc" target="_blank" rel="noopener noreferrer">Twitter</a> or <a href="https://github.com/waseemhnyc/" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
   </div>
+
+  <script>
+    document.getElementById('downloadBtn').addEventListener('click', () => {
+      const image = document.getElementById('imageToDownload');
+      const imageUrl = image.getAttribute('src');
+      const imageName = imageUrl.substring(imageUrl.lastIndexOf('/') + 1);
+
+      fetch(imageUrl)
+          .then(response => response.blob())
+          .then(blob => {
+              const link = document.createElement('a');
+              link.href = URL.createObjectURL(blob);
+              link.download = imageName;
+              link.click();
+              URL.revokeObjectURL(link.href);
+          })
+          .catch(error => console.error('Error downloading image:', error));
+    });
+  </script>
 </body>
