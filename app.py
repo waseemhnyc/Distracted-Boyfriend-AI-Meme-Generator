@@ -6,7 +6,7 @@ app = Flask(__name__)
 @app.route("/", methods=("GET", "POST"))
 def index():
     if request.method == "POST":
-        user_input = request.form["animal"]
+        user_input = request.form["user_input"]
         url = distracted_boyfriend_meme_generator(user_input)
         return redirect(url_for("index", result=url))
 
