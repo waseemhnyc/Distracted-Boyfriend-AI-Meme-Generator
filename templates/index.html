@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<head>
+  <title>Distracted Boyfriend</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='main.css') }}" />
+</head>
+
+<body>
+  <h3>Distracted Boyfriend Meme Generator</h3>
+  <form action="/" method="post">
+    <input type="text" name="animal" placeholder="" required />
+    <input type="submit" value="Generate Meme" />
+  </form>
+  {% if result %}
+    <img class="result" src="{{ result }}" alt="{{ result }}">
+  {% else %}
+    <img class="result" src="https://i.imgflip.com/7km81u.jpg" title="made at imgflip.com" download="proposed_file_name"/>
+  {% endif %}
+  <div style="display: flex;">
+    <p>Created by Waseem. Get in touch with me on <a href="https://twitter.com/waseemhnyc" target="_blank" rel="noopener noreferrer">Twitter</a> or <a href="https://github.com/waseemhnyc/" target="_blank" rel="noopener noreferrer">GitHub</a>.</p>
+  </div>
+</body>
