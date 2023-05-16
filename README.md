@@ -4,7 +4,7 @@
 
 This Python project generates your own Distracted Boyfriend meme.
 
-You type in a topic of interest and LangChain and OpenAI generate the text for the meme. We pass this on to Imgflip to generate the actual meme.
+You input in a topic of interest and LangChain and OpenAI generate the text for the meme. We pass this on to Imgflip to generate the actual meme.
 
 With [LangChain](https://github.com/hwchase17/langchain) we:
 
@@ -19,9 +19,7 @@ This project was started with the [OpenAI python quickstart repo](https://github
 
 ## Demo
 
-A demo using Lex Fridman: https://lexfridman.com/. Sorry Lex next time I will spell your last name correctly!
-
-Goes to show that GPT-4 still knew who I was talking about.
+A demo using Lex Fridman: https://lexfridman.com/.
 
 Video: https://youtu.be/eYwDiV8hhB8
 
